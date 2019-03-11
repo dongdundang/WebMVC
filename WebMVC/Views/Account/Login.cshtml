@@ -1,0 +1,49 @@
+﻿@model WebMVC.Models.LoginViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/lib/bootstrap-4.3.1-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="row pt-5">
+        <div class="col-md-4 offset-4">
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "border border-warning rounded p-5", id = "LoginForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row text-primary">
+                    <h2><a href="@Url.Action("Index","Home")"><i class="fas fa-home"></i></a></h2>
+                    <h2 class="ml-auto">Login Form</h2>
+                </div>
+                <div class="form-group">
+                    <label>Username <i class="fas fa-user-circle"></i></label>
+                    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", id = "Username" })
+                    <label class="text-danger" id="UsernameValidator"></label>
+                </div>
+                <div class="form-group">
+                    <label>Password <i class="fa fa-key"></i></label>
+                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", id = "Password", type = "password" })
+                    <label class="text-danger" id="PasswordValidator"></label>
+                </div>
+                <div class="form-check">
+                    <label><input type="checkbox" name="RememberMe" id="RememberMe" class="form-check-input" /> Remember Me</label>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <button class="btn btn-primary mr-auto" id="LoginButton">Login</button>
+                    </div>
+                    <div class="col-6">
+                        <a href="@Url.Action("Register","Account")">Register Here</a>
+                    </div>
+                </div>
+                <label class="text-center">@ViewBag.Error</label>
+            }
+        </div>
+    </div>
+    <script src="~/lib/anime/anime.min.js"></script>
+    <script src="~/Scripts/Account/Login.js"></script>
+</body>
+</html>

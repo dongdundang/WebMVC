@@ -1,0 +1,10 @@
+﻿body {
+    font-family: Verdana;
+    font-size: 12px;
+    min-height: 100%;
+}
+
+.container-fluid{
+    min-height:100%;
+    overflow:hidden;
+}

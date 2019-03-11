@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/noty-3.1.4/lib/noty.css" rel="stylesheet" />
+    <link href="~/lib/noty-3.1.4/lib/animate.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-4.3.1-dist/css/bootstrap.css" rel="stylesheet" />
+    @RenderSection("Content", false)
+</head>
+<body>
+    <div class="container-fluid" id="Body">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <a class="navbar-brand"><img src="~/Images/icon.jpg" style="width:50px; height:50px;"/></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarIcons" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarIcons">
+                <ul class="navbar-nav mr-auto">
+                    <li class="navbar-item">
+                        <a class="navbar-link"><span>Huhmmm</span></a>
+                    </li>
+                </ul>
+
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        @RenderBody()
+    </div>
+    <script src="~/lib/noty-3.1.4/lib/noty.min.js"></script>
+    <script src="~/lib/anime/anime.min.js"></script>
+    <script src="~/lib/JQuery/jquery-3.3.1.js"></script>
+    <script src="~/lib/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

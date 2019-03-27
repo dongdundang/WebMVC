@@ -11,19 +11,18 @@
 <body>
     <div class="row pt-5">
         <div class="col-md-4 offset-4">
-            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "border border-warning rounded p-5", id = "LoginForm" }))
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "border border-warning rounded pr-2 pl-2", id = "LoginForm" }))
             {
                 @Html.AntiForgeryToken()
-                <div class="row text-primary">
-                    <h2><a href="@Url.Action("Index","Home")"><i class="fas fa-home"></i></a></h2>
-                    <h2 class="ml-auto">Login Form</h2>
+                <div class="text-primary text-center">
+                    <h2><a href="@Url.Action("Index","Home")"><i class="fas fa-home"></i></a> Login Form</h2>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="padding:0px">
                     <label>Username <i class="fas fa-user-circle"></i></label>
                     @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", id = "Username" })
                     <label class="text-danger" id="UsernameValidator"></label>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="padding:0px">
                     <label>Password <i class="fa fa-key"></i></label>
                     @Html.TextBoxFor(x => x.Password, new { @class = "form-control", id = "Password", type = "password" })
                     <label class="text-danger" id="PasswordValidator"></label>

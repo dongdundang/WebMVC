@@ -82,6 +82,12 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -126,10 +132,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
     <Content Include="Images\background.png" />
     <Content Include="Images\icon.jpg" />
+    <Content Include="Images\Pacman-1s-200px.gif" />
     <Content Include="lib\anime\anime.es.js" />
     <Content Include="lib\anime\anime.js" />
     <Content Include="lib\anime\anime.min.js" />
@@ -3057,20 +3065,153 @@
     <Content Include="lib\p5\p5.js" />
     <Content Include="lib\p5\p5.min.js" />
     <Content Include="lib\p5\p5.pre-min.js" />
+    <Content Include="lib\Quill\.eslintrc.js" />
+    <Content Include="lib\Quill\assets\favicon.png" />
+    <Content Include="lib\Quill\assets\icons\align-center.svg" />
+    <Content Include="lib\Quill\assets\icons\align-justify.svg" />
+    <Content Include="lib\Quill\assets\icons\align-left.svg" />
+    <Content Include="lib\Quill\assets\icons\align-right.svg" />
+    <Content Include="lib\Quill\assets\icons\attachment.svg" />
+    <Content Include="lib\Quill\assets\icons\audio.svg" />
+    <Content Include="lib\Quill\assets\icons\authorship.svg" />
+    <Content Include="lib\Quill\assets\icons\background.svg" />
+    <Content Include="lib\Quill\assets\icons\blockquote.svg" />
+    <Content Include="lib\Quill\assets\icons\bold.svg" />
+    <Content Include="lib\Quill\assets\icons\clean.svg" />
+    <Content Include="lib\Quill\assets\icons\code.svg" />
+    <Content Include="lib\Quill\assets\icons\color.svg" />
+    <Content Include="lib\Quill\assets\icons\comment.svg" />
+    <Content Include="lib\Quill\assets\icons\direction-ltr.svg" />
+    <Content Include="lib\Quill\assets\icons\direction-rtl.svg" />
+    <Content Include="lib\Quill\assets\icons\dropdown.svg" />
+    <Content Include="lib\Quill\assets\icons\embed.svg" />
+    <Content Include="lib\Quill\assets\icons\emoji.svg" />
+    <Content Include="lib\Quill\assets\icons\float-center.svg" />
+    <Content Include="lib\Quill\assets\icons\float-full.svg" />
+    <Content Include="lib\Quill\assets\icons\float-left.svg" />
+    <Content Include="lib\Quill\assets\icons\float-right.svg" />
+    <Content Include="lib\Quill\assets\icons\font.svg" />
+    <Content Include="lib\Quill\assets\icons\formula.svg" />
+    <Content Include="lib\Quill\assets\icons\hashtag.svg" />
+    <Content Include="lib\Quill\assets\icons\header-2.svg" />
+    <Content Include="lib\Quill\assets\icons\header-3.svg" />
+    <Content Include="lib\Quill\assets\icons\header-4.svg" />
+    <Content Include="lib\Quill\assets\icons\header-5.svg" />
+    <Content Include="lib\Quill\assets\icons\header-6.svg" />
+    <Content Include="lib\Quill\assets\icons\header.svg" />
+    <Content Include="lib\Quill\assets\icons\horizontal-rule.svg" />
+    <Content Include="lib\Quill\assets\icons\image.svg" />
+    <Content Include="lib\Quill\assets\icons\indent.svg" />
+    <Content Include="lib\Quill\assets\icons\italic.svg" />
+    <Content Include="lib\Quill\assets\icons\link.svg" />
+    <Content Include="lib\Quill\assets\icons\list-bullet.svg" />
+    <Content Include="lib\Quill\assets\icons\list-check.svg" />
+    <Content Include="lib\Quill\assets\icons\list-ordered.svg" />
+    <Content Include="lib\Quill\assets\icons\map.svg" />
+    <Content Include="lib\Quill\assets\icons\mention.svg" />
+    <Content Include="lib\Quill\assets\icons\more.svg" />
+    <Content Include="lib\Quill\assets\icons\outdent.svg" />
+    <Content Include="lib\Quill\assets\icons\redo.svg" />
+    <Content Include="lib\Quill\assets\icons\size-decrease.svg" />
+    <Content Include="lib\Quill\assets\icons\size-increase.svg" />
+    <Content Include="lib\Quill\assets\icons\size.svg" />
+    <Content Include="lib\Quill\assets\icons\spacing.svg" />
+    <Content Include="lib\Quill\assets\icons\speech.svg" />
+    <Content Include="lib\Quill\assets\icons\strike.svg" />
+    <Content Include="lib\Quill\assets\icons\subscript.svg" />
+    <Content Include="lib\Quill\assets\icons\superscript.svg" />
+    <Content Include="lib\Quill\assets\icons\table-border-all.svg" />
+    <Content Include="lib\Quill\assets\icons\table-border-bottom.svg" />
+    <Content Include="lib\Quill\assets\icons\table-border-left.svg" />
+    <Content Include="lib\Quill\assets\icons\table-border-none.svg" />
+    <Content Include="lib\Quill\assets\icons\table-border-outside.svg" />
+    <Content Include="lib\Quill\assets\icons\table-border-right.svg" />
+    <Content Include="lib\Quill\assets\icons\table-border-top.svg" />
+    <Content Include="lib\Quill\assets\icons\table-delete-cells.svg" />
+    <Content Include="lib\Quill\assets\icons\table-delete-columns.svg" />
+    <Content Include="lib\Quill\assets\icons\table-delete-rows.svg" />
+    <Content Include="lib\Quill\assets\icons\table-insert-cells.svg" />
+    <Content Include="lib\Quill\assets\icons\table-insert-columns.svg" />
+    <Content Include="lib\Quill\assets\icons\table-insert-rows.svg" />
+    <Content Include="lib\Quill\assets\icons\table-merge-cells.svg" />
+    <Content Include="lib\Quill\assets\icons\table-unmerge-cells.svg" />
+    <Content Include="lib\Quill\assets\icons\table.svg" />
+    <Content Include="lib\Quill\assets\icons\underline.svg" />
+    <Content Include="lib\Quill\assets\icons\undo.svg" />
+    <Content Include="lib\Quill\assets\icons\video.svg" />
+    <Content Include="lib\Quill\blots\block.js" />
+    <Content Include="lib\Quill\blots\break.js" />
+    <Content Include="lib\Quill\blots\container.js" />
+    <Content Include="lib\Quill\blots\cursor.js" />
+    <Content Include="lib\Quill\blots\embed.js" />
+    <Content Include="lib\Quill\blots\inline.js" />
+    <Content Include="lib\Quill\blots\scroll.js" />
+    <Content Include="lib\Quill\blots\text.js" />
+    <Content Include="lib\Quill\core.js" />
+    <Content Include="lib\Quill\core\editor.js" />
+    <Content Include="lib\Quill\core\emitter.js" />
+    <Content Include="lib\Quill\core\logger.js" />
+    <Content Include="lib\Quill\core\module.js" />
+    <Content Include="lib\Quill\core\polyfill.js" />
+    <Content Include="lib\Quill\core\quill.js" />
+    <Content Include="lib\Quill\core\selection.js" />
+    <Content Include="lib\Quill\core\theme.js" />
+    <Content Include="lib\Quill\formats\align.js" />
+    <Content Include="lib\Quill\formats\background.js" />
+    <Content Include="lib\Quill\formats\blockquote.js" />
+    <Content Include="lib\Quill\formats\bold.js" />
+    <Content Include="lib\Quill\formats\code.js" />
+    <Content Include="lib\Quill\formats\color.js" />
+    <Content Include="lib\Quill\formats\direction.js" />
+    <Content Include="lib\Quill\formats\font.js" />
+    <Content Include="lib\Quill\formats\header.js" />
+    <Content Include="lib\Quill\formats\image.js" />
+    <Content Include="lib\Quill\formats\indent.js" />
+    <Content Include="lib\Quill\formats\italic.js" />
+    <Content Include="lib\Quill\formats\link.js" />
+    <Content Include="lib\Quill\formats\list.js" />
+    <Content Include="lib\Quill\formats\script.js" />
+    <Content Include="lib\Quill\formats\size.js" />
+    <Content Include="lib\Quill\formats\strike.js" />
+    <Content Include="lib\Quill\formats\underline.js" />
+    <Content Include="lib\Quill\formats\video.js" />
+    <Content Include="lib\Quill\mention.js" />
+    <Content Include="lib\Quill\modules\clipboard.js" />
+    <Content Include="lib\Quill\modules\formula.js" />
+    <Content Include="lib\Quill\modules\history.js" />
+    <Content Include="lib\Quill\modules\keyboard.js" />
+    <Content Include="lib\Quill\modules\syntax.js" />
+    <Content Include="lib\Quill\modules\toolbar.js" />
+    <Content Include="lib\Quill\quill.js" />
+    <Content Include="lib\Quill\themes\base.js" />
+    <Content Include="lib\Quill\themes\bubble.js" />
+    <Content Include="lib\Quill\themes\snow.js" />
+    <Content Include="lib\Quill\ui\color-picker.js" />
+    <Content Include="lib\Quill\ui\icon-picker.js" />
+    <Content Include="lib\Quill\ui\icons.js" />
+    <Content Include="lib\Quill\ui\picker.js" />
+    <Content Include="lib\Quill\ui\tooltip.js" />
     <Content Include="Scripts\Account\Login.js" />
     <Content Include="Scripts\Account\Register.js" />
+    <Content Include="Scripts\Album\AddNewAlbum.js" />
+    <Content Include="Scripts\Album\Index.js" />
+    <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\Home\Index.js" />
     <Content Include="Scripts\Shared\Error404.js" />
+    <Content Include="Scripts\Shared\Layout.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlbumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Config.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -4230,12 +4371,22 @@
     <Content Include="lib\fontawesome\webfonts\fa-solid-900.ttf" />
     <Content Include="lib\fontawesome\webfonts\fa-solid-900.woff" />
     <Content Include="lib\fontawesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="lib\Quill\assets\base.styl" />
+    <Content Include="lib\Quill\assets\bubble.styl" />
+    <Content Include="lib\Quill\assets\bubble\toolbar.styl" />
+    <Content Include="lib\Quill\assets\bubble\tooltip.styl" />
+    <Content Include="lib\Quill\assets\core.styl" />
+    <Content Include="lib\Quill\assets\snow.styl" />
+    <Content Include="lib\Quill\assets\snow\toolbar.styl" />
+    <Content Include="lib\Quill\assets\snow\tooltip.styl" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Album\AddNewAlbum.cshtml" />
+    <Content Include="Views\Album\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4245,6 +4396,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Upload\Album\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -4253,6 +4405,10 @@
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{13541864-0072-4406-854c-47644eb77d7f}</Project>
       <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{ce580b2f-d08e-45c3-b620-da0a00bc8976}</Project>
+      <Name>DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{2cd48fa0-1674-445a-9fe0-0e0fe6e8f3a5}</Project>

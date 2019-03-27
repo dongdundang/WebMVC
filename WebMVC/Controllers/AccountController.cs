@@ -1,7 +1,9 @@
-﻿using DTO;
+﻿using BUS;
+using DTO;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -29,6 +31,24 @@ namespace WebMVC.Controllers
         {
             get { return HttpContext.GetOwinContext().Authentication; }
         }
+
+        [HttpGet]
+        public JsonResult CheckUsernameExist(string username)
+        {
+            using(UserRepository rep = new UserRepository())
+            {
+                var result = rep.GetProperties(x => new { Username = x.UserName }, x => x.Activate == true && x.UserName == username).Any();
+                if(result == true)
+                {
+                    return Json(1, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(0, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
+
         [HttpGet]
         public ActionResult Register()
         {
@@ -45,6 +65,8 @@ namespace WebMVC.Controllers
                 {
                     UserName = model.UserName,
                     Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

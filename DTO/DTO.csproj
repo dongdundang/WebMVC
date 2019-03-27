@@ -75,18 +75,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationSignInManager.cs" />
-    <Compile Include="ApplicationUser.cs" />
-    <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="ApplicationUserManager.cs" />
-    <Compile Include="ApplicationUserStore.cs" />
-    <Compile Include="CustomeRole.cs" />
-    <Compile Include="CustomUserLogin.cs" />
-    <Compile Include="CustomRoleStore.cs" />
-    <Compile Include="CustomUserClaim.cs" />
-    <Compile Include="CustomUserRole.cs" />
+    <Compile Include="Album.cs" />
+    <Compile Include="Identity\ApplicationSignInManager.cs" />
+    <Compile Include="Identity\ApplicationUser.cs" />
+    <Compile Include="Identity\ApplicationDbContext.cs" />
+    <Compile Include="Identity\ApplicationUserManager.cs" />
+    <Compile Include="Identity\ApplicationUserStore.cs" />
+    <Compile Include="Identity\CustomeRole.cs" />
+    <Compile Include="Identity\CustomUserLogin.cs" />
+    <Compile Include="Identity\CustomRoleStore.cs" />
+    <Compile Include="Identity\CustomUserClaim.cs" />
+    <Compile Include="Identity\CustomUserRole.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Song.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -8,48 +8,61 @@
     <link href="~/lib/fontawesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="row pt-5">
-        <div class="col-md-4 offset-4">
-            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "border border-warning rounded p-5", id = "RegisterForm" }))
-            {
-                @Html.AntiForgeryToken()
-                <div class="row text-primary">
-                    <h2><a href="@Url.Action("Index","Home")"><i class="fas fa-home"></i></a></h2>
-                    <h2 class="ml-auto">Register Form</h2>
-                </div>
-                <div class="form-group">
-                    <label>Username <i class="fas fa-user-circle"></i></label>
-                    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", id = "Username" })
-                    <label class="text-danger" id="UsernameValidator"></label>
-                </div>
-                <div class="form-group">
-                    <label>Email <i class="fas fa-user-circle"></i></label>
-                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", id = "Email" })
-                    <label class="text-danger" id="UsernameValidator"></label>
-                </div>
-                <div class="form-group">
-                    <label>Password <i class="fa fa-key"></i></label>
-                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", id = "Password", type = "password" })
-                    <label class="text-danger" id="PasswordValidator"></label>
-                </div>
-                <div class="form-group">
-                    <label>Password Confirm <i class="fa fa-key"></i></label>
-                    @Html.TextBoxFor(x => x.PasswordConfirm, new { @class = "form-control", id = "PasswordConfirm", type = "password" })
-                    <label class="text-danger" id="PasswordValidator"></label>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <button class="btn btn-primary" type="button" id="RegisterButton" onclick="registerButtonClick()">Register</button>
+    <div class="container-fluid">
+        <div class="row pt-5">
+            <div class="col-md-4 offset-4">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "border border-warning rounded pl-2 pr-2", id = "RegisterForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="text-center text-primary" style="margin:0px;">
+                        <h2><a href="@Url.Action("Index","Home")"><i class="fas fa-home"></i></a> Register Form</h2>
                     </div>
-                    <div class="col-6">
-                        <a href="@Url.Action("Login","Account")">Login Here</a>
+                    <div class="form-group" style="margin:0px;">
+                        <label>Username <i class="fas fa-user-circle"></i></label>
+                        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", id = "Username", oninput = "validateUsername()" })
+                        <label class="text-danger" id="UsernameValidator"></label>
                     </div>
-                </div>
-                <label class="text-center">@ViewBag.Error</label>
-            }
+                    <div class="form-group" style="margin:0px;">
+                        <label>Email <i class="fas fa-user-circle"></i></label>
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", id = "Email" })
+                        <label class="text-danger" id="EmailValidator"></label>
+                    </div>
+                    <div class="form-group" style="margin:0px;">
+                        <label>First Name <i class="fas fa-signature"></i></label>
+                        @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", id = "FirstName" })
+                        <label class="text-danger" id="FirstNameValidator"></label>
+                    </div>
+                    <div class="form-group" style="margin:0px;">
+                        <label>Last Name <i class="fas fa-signature"></i></label>
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", id = "LastName" })
+                        <label class="text-danger" id="LastNameValidator"></label>
+                    </div>
+                    <div class="form-group" style="margin:0px;">
+                        <label>Password <i class="fa fa-key"></i></label>
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control", id = "Password", type = "password" })
+                        <label class="text-danger" id="PasswordValidator"></label>
+                    </div>
+                    <div class="form-group" style="margin:0px;">
+                        <label>Password Confirm <i class="fa fa-key"></i></label>
+                        @Html.TextBoxFor(x => x.PasswordConfirm, new { @class = "form-control", id = "PasswordConfirm", type = "password" })
+                        <label class="text-danger" id="PasswordConfirmValidator"></label>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-primary" type="button" id="RegisterButton" onclick="registerButtonClick()">Register</button>
+                        </div>
+                        <div class="col-6">
+                            <a href="@Url.Action("Login","Account")">Login Here</a>
+                        </div>
+                    </div>
+                    <label class="text-center">@ViewBag.Error</label>
+                }
+            </div>
         </div>
     </div>
     <script src="~/lib/anime/anime.min.js"></script>
+    <script src="~/lib/JQuery/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/Common.js"></script>
     <script src="~/Scripts/Account/Register.js"></script>
 </body>
 </html>

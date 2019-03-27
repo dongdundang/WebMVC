@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DTO.Album>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Index</h2>
+    <a href="@Url.Action("AddnewAlbum","Album")" style="text-decoration:none; cursor: pointer" class="btn btn-primary">+Add New Album</a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Album</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="AlbumName" />
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" id="AlbumId" />
+                        <img src="" id="AlbumCover" style="width:50px; height:50px"/>
+                        <input type="file" id="AlbumCoverInput" onchange="displayImage(this)"/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="updateAlbum()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <table class="col-6 offset-3 table table-bordered table-striped table-hover text-center">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Album Cover</th>
+                <th><i class="fas fa-trash"></i></th>
+                <th><i class="fas fa-edit"></i></th>
+            </tr>
+        </thead>
+        <tbody id="tbodyAlbum"></tbody>
+    </table>
+</div>
+@section Scripts{
+    <script src="~/Scripts/Album/Index.js"></script>
+}

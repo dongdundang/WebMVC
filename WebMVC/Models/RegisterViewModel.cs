@@ -12,6 +12,12 @@ namespace WebMVC.Models
         [DataType(DataType.EmailAddress,ErrorMessage ="Email not valid")]
         public string Email { set; get; }
 
+        [Required]
+        public string FirstName { set; get; }
+
+        [Required]
+        public string LastName { set; get; }
+
         [DataType(DataType.Password)]
         [StringLength(maximumLength:32,MinimumLength =6,ErrorMessage ="Password must be between 6 & 32 characters")]
         public string Password { set; get; }

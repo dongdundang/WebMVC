@@ -485,7 +485,7 @@ var docTitle = exports.docTitle = {
   }
 };
 
-var DefaultMaxVisible = exports.DefaultMaxVisible = 5;
+var DefaultMaxVisible = exports.DefaultMaxVisible = 10000;
 
 var Queues = exports.Queues = {
   global: {

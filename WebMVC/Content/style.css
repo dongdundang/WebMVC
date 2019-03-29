@@ -1,0 +1,50 @@
+.img-menu{
+    padding-top:5%;
+}
+.latest-product {
+    margin-top:8%;
+}
+.latest-product .latest-product-title {
+    border-bottom: 1px solid #ccc;
+
+}
+.latest-product-img {
+    max-width:100%;
+    margin-top:10px;
+}
+.latest-product .latest-product-product{
+    
+}
+.latest-product-product-junior {
+    position: relative;
+    margin-bottom: 5px;
+}
+.latest-product-product-junior:hover {
+    box-shadow: 0 0 5px 2px rgba(0,0,0,0.12);
+}
+.latest-product-product-junior span {
+    color: #00000070;
+}
+.latest-product-product-junior a{
+    color:#000000;
+}
+.latest-product-product-junior a:hover {
+    color: #ffc107;
+    text-decoration:none;
+}
+.view-img {
+    padding-top: 65px;
+}
+.watch-collection {
+    margin-top: 65px;
+    
+}
+.watch-collection .watch-collection-title {
+    border-bottom: 1px solid #ccc;
+}
+.priceometer {
+    margin-top: 65px;
+}
+.priceometer-title {
+    border-bottom: 1px solid #ccc;
+}
